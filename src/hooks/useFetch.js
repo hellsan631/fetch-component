@@ -10,12 +10,12 @@ export default function useFetch(url, options) {
       contentType &&
       contentType.indexOf('application/json') !== -1
     ) {
-      return await response.json();
+      return await response.json()
     }
-    return await response.text();
+    return await response.text()
   }
 
   const [value] = promiseResource(fetchPromise, uid)
 
-  return value;
+  return value
 }

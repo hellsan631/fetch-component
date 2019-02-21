@@ -1,6 +1,6 @@
 import React from 'react'
-import usePromise from '../hooks/usePromise';
-import FakeAPI from '../services/FakeAPI';
+import usePromise from '../hooks/usePromise'
+import FakeAPI from '../services/FakeAPI'
 
 // Just populates a field
 export default function Title({ id }) {
