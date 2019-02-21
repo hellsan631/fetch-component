@@ -8,7 +8,7 @@ const promises = []
  *
  * @param {*} thenable Premise-based resource whose value will be synchronously given
  * @param {*} uid Unique Id to avoid duplicate promises
- * @returns
+ * @returns [resource.value, resource]
  */
 const promiseResource = (thenable, uid) => {
   if (!uid) {
