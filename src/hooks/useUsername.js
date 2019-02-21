@@ -3,7 +3,7 @@ import deepEquals from 'deep-equal'
 import FakeAPI from '../services/FakeAPI'
 import useFetch from '../hooks/useFetch'
 
-// Uses API
+// Uses API to get username, and update that username via state hooks.
 export default function useUsername() {
   const defaultUsername = useFetch(FakeAPI.getUsernameUrl(), FakeAPI.getOptions())
   const [username, setUsername] = useState(defaultUsername)
