@@ -13,6 +13,7 @@ export default function useUsername() {
       const request = FakeAPI.updateUsername(username)
 
       return () => {
+        // Abort requests on rerenders if they haven't persisted.
         if (request && request.controller) {
           request.controller.abort()
         }
