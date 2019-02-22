@@ -4,7 +4,6 @@ import useLocalForage from '../hooks/useLocalForage'
 // Uses Local Forage
 export default function Email() {
   const [email, setEmail] = useLocalForage('email', '')
-  console.log('render email');
 
   return (
     <input

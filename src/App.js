@@ -1,10 +1,10 @@
 import React, { Component, Suspense, lazy } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Title from './components/Title';
 
 const Username = lazy(() => import('./components/Username'))
 const Email = lazy(() => import('./components/Email'))
-const Title = lazy(() => import('./components/Title'))
 
 class App extends Component {
   render() {
