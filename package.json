@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "deep-equal": "^1.0.1",
+    "ky": "^0.9.0",
     "localforage": "^1.7.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",

@@ -1,6 +1,6 @@
 // Caches for all of the premises, so they don't have to be 
 // executed again during component re-renders
-const promises = []
+const promises = {}
 
 /**
  * Throws is a promise for React Suspense to catch.
@@ -12,27 +12,25 @@ const promises = []
  */
 const promiseResource = (thenable, uid) => {
   if (!uid) {
-    throw new Error('Unique ID must be present for component tracking')
+    throw new Error('Unique ID must be present for promise tracking')
   }
 
-  for (const resource of promises) {
+  // Check to see if the uid matches a request already in cache
+  if (promises[uid]) {
+    const resource = promises[uid];
 
-    // Check to see if the uid matches a request already in cache
-    if (uid === resource.uid) {
-
-      // If an error occurred.
-      if (resource.hasOwnProperty('error')) {
-        throw resource.error;
-      }
-
-      // If a promise was successful,
-      if (resource.hasOwnProperty('value')) {
-        return [resource.value, resource];
-      }
-
-      // If nothing has changed.
-      throw resource.promise;
+    // If an error occurred.
+    if (resource.hasOwnProperty('error')) {
+      throw resource.error;
     }
+
+    // If a promise was successful,
+    if (resource.hasOwnProperty('value')) {
+      return [resource.value, resource];
+    }
+
+    // If nothing has changed.
+    throw resource.promise;
   }
 
   // The promise is new or has changed.
@@ -47,16 +45,15 @@ const promiseResource = (thenable, uid) => {
 
     // Allow cleanup to occur for component unmounts
     cleanup: () => {
-      const index = promises.indexOf(resource)
-      if (index !== -1) {
-        promises.splice(index, 1);
+      if (promises[uid]) {
+        delete promises[uid];
       }
     },
     uid,
   };
 
   // Add promise to cache
-  promises.push(resource);
+  promises[uid] = resource;
   
   // Throw new promise
   throw resource.promise;
