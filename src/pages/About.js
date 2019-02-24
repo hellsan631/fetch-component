@@ -1,6 +1,6 @@
 import React, { Fragment, lazy } from 'react'
 import Title from '../components/Title'
-import Link from '../components/Router/Link'
+import { Link } from '../components/Router'
 const Username = lazy(() => import('../components/Username'))
 
 export default function About() {

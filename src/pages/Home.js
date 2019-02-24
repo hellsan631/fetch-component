@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Title from '../components/Title'
-import Link from '../components/Router/Link'
+import { Link } from '../components/Router'
 
 export default function Home() {
   return (

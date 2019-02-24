@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import RouterContext from './context'
+import React from 'react'
 import matchPath from './matchPath';
+import useRouter from './useRouter';
 
 export default function Switch({ children }) {
-  const context = useContext(RouterContext)
+  const context = useRouter()
   let element = null
   let match = false 
 

@@ -1,9 +1,7 @@
 import React, { Component, Suspense, lazy } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Router from './components/Router'
-import Switch from './components/Router/Switch'
-import Route from './components/Router/Route'
+import Router, { Switch, Route } from './components/Router'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -31,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

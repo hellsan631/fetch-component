@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import RouterContext from './context'
+import React from 'react'
+import useRouter from './useRouter'
 
 export default function Link({ href, children }) {
-  const context = useContext(RouterContext)
+  const context = useRouter()
   const onClick = (event) => {
     event.preventDefault()
     context.dispatch({ type: 'GO', payload: href })
