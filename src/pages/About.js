@@ -8,7 +8,7 @@ export default function About() {
     <Fragment>
       <Title id="app-title" />
       <Username />
-      <Link href="/help">Help Me</Link> 
+      <Link href={`/help/someId`}>Help Me</Link> 
     </Fragment>
   )
 }

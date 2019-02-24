@@ -19,9 +19,9 @@ class App extends Component {
               fallback={<img src={logo} className="App-logo" alt="logo" />}
             >
               <Switch>
+                <Route path="/about/:id" component={About} />
+                <Route path="/help/:id" component={Help} />
                 <Route path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/help" component={Help} />
               </Switch>
             </Suspense>
           </Router>

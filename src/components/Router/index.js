@@ -11,7 +11,7 @@ export default function Router({ children }) {
 	}
 
   useEffect(() => {
-    window.addEventListener('popstate', navigateHandler);
+    window.addEventListener('popstate', navigateHandler)
 
     return () => window.removeEventListener('popstate', navigateHandler)
   }, [state])
