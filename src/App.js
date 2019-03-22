@@ -3,9 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import Router, { Switch, Route } from './components/Router'
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/About'))
-const Help = lazy(() => import('./pages/Help'))
+const Counter = lazy(() => import('./pages/Counter'))
 
 class App extends Component {
   render() {
@@ -17,9 +15,7 @@ class App extends Component {
               fallback={<img src={logo} className="App-logo" alt="logo" />}
             >
               <Switch>
-                <Route path="/about/:id" component={About} />
-                <Route path="/help/:id" component={Help} />
-                <Route path="/" component={Home} />
+                <Route path="/" component={Counter} />
               </Switch>
             </Suspense>
           </Router>
